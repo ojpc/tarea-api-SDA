@@ -1,7 +1,6 @@
 var express = require('express');
 var path = require('path');
 var bodyParser = require('body-parser');
-var logger = require('morgan');
 var app = express();
 var index = require('./routes/index');
 //var arduino = require('./arduino');
