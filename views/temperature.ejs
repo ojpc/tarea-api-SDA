@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<!-- define angular app -->
+<html>
+
+<head>
+  <!-- SCROLLS -->
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" />
+  <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <!-- Jquery -->
+  <script src="assets/libs/jquery-3.2.1.min.js"></script>
+
+
+  <!-- Angular -->
+  <script src="assets/libs/angular.min.js"></script>
+	<script src="assets/libs/angular-route.min.js"></script>
+  <script src="assets/libs/angular-resource.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-socket-io/0.7.0/socket.js"></script>
+  <script src="app/app.module.js"></script>
+  <script src="app/app.routes.js"></script>
+  <script src="app/app.services.js"></script>
+
+</head>
+<body  ng-app="sda-app">
+  <nav class="navbar navbar-default">
+    <div class="container">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/"><i class="fa fa-home"></i> Home</a></li>
+        <li><a href="temperature"><i class="fa fa-thermometer-empty"></i> Temperature</a></li>
+        <li><a href="humidity"><i class="fa fa-tint"></i> Humidity</a></li>
+      </ul>
+    </div>
+  </nav>
+  <div class="container">
+    <div id="main">
+      <div class="jumbotron text-center">
+  	    <h1>Bienvenido</h1>
+      	<p>En esta página puedes ver la temperatura y la humedad de Medellín en tiempo real</p>
+     </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="jumbotron text-center">
+    	<p>Temperatura: {{ temperature }}  </p>
+    </div>
+  </div>
+
+</body>
+
+</html>
