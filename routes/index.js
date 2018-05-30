@@ -8,11 +8,11 @@ router.get('/', function(req, res, next){
 });
 
 router.get('/temperature', function(req, res, next){
-  res.render('temperature.ejs', { message: "test" });
+  res.render('temperature.ejs');
 });
 
 router.get('/humidity', function(req, res, next){
-  res.render('humidity.ejs', { message: "HUMEDAD" });
+  res.render('humidity.ejs');
 });
 
 module.exports = router
