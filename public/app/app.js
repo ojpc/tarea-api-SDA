@@ -1,26 +1,38 @@
-var app = angular.module("rt-sensor", ['btford.socket-io']);
+var sdaApi = angular.module('sdaApi', ['btford.socket-io', 'ngRoute']);
+sdaApi.config(['$routeProvider', function ($routeProvider) {
+    $routeProvider
+        .when('/', {
+            templateUrl : 'index.html',
+            controller  : 'mainController'
+        })
+        .when('/temperature', {
+            templateUrl : 'views/temperature.html',
+            controller  : 'tempController'
+        })
+        .when('/humidity', {
+            templateUrl : 'views/humidity.html',
+            controller  : 'humController'
+        });
+}]);
 
-app.factory('socket', function (socketFactory) {
+sdaApi.factory('socket', function (socketFactory) {
   var myIoSocket = io.connect();
   mySocket = socketFactory({
     ioSocket: myIoSocket
   });
-  console.log(mySocket)
   return mySocket;
 });
 
-app.controller("temperatureController", function($scope, socket) {
+sdaApi.controller('mainController', function($scope, socket) {
 
+});
+sdaApi.controller('tempController', function($scope, socket) {
   socket.on('temperature', function(msg) {
-    $scope.temperature = msg
-  })
-
+    $scope.temperature = msg.temperature
 })
-
-app.controller("humidityController", function($scope, socket) {
-
+});
+sdaApi.controller('humController', function($scope, socket) {
   socket.on('humidity', function(msg) {
-    $scope.humidity = msg
-  })
-
+    $scope.humidity = msg.humidity
 })
+});
